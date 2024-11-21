@@ -9,15 +9,10 @@ function XLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation
-    if (!username || !password) {
-      setMessage("Both fields are required");
-      return;
-    }
-
     // Credential Check
     if (username === "user" && password === "password") {
       setFormSubmit(true);
+      setMessage("");
     } else {
       setMessage("Invalid username or password");
     }
@@ -25,10 +20,10 @@ function XLogin() {
 
   return (
     <div>
+      <h2>XLogin</h2>
       {message && <p>{message}</p>}
       {!formSubmit ? (
         <form onSubmit={handleSubmit}>
-          <h2>XLogin</h2>
           <div>
             <label htmlFor="username">Username</label>
             <input
